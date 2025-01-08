@@ -1,0 +1,30 @@
+---
+import ExperienceItems from "./ExperienceItems.astro"
+
+const EXPERIENCE=[
+    {
+        date: "Marzo 2023",
+        title: "Software Developer",
+        company: "Freelancer",
+        description:
+        "Desarrollador de software freelancer con experiencia en la creación de soluciones tecnológicas innovadoras y escalables. Especializado en el desarrollo de aplicaciones web y móviles que potencian la eficiencia y la interacción del usuario. Comprometido con la entrega de proyectos de alta calidad dentro de los plazos acordados.",
+    },
+    {
+        date: "Actualmente...",
+        title: "Salesforce Developer",
+        company: "Viseo LATAM",
+        description:
+        "Especializado en configurar, personalizar y desarrollar soluciones dentro de la plataforma Salesforce para mejorar procesos de negocio y aumentar la eficiencia operativa, asegurando que los sistemas se alineen con las necesidades específicas del cliente.",
+    },
+]
+---
+<ol class="relative border-s border-gray-200 ml-3">
+    {
+        EXPERIENCE.map((experience) => (
+        <li class="">
+            <ExperienceItems {...experience} />
+        </li>
+    ))
+    }                  
+</ol>
+

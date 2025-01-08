@@ -1,0 +1,143 @@
+---
+import HTML from "../icons/HTML.astro"
+import CSS from "../icons/CSS.astro"
+import SASS from "../icons/SASS.astro"
+import JS from "../icons/JS.astro"
+import LinkButton from "./LinkButton.astro"
+import GitHub from "../icons/GitHub.astro"
+import Link from "../icons/Link.astro"
+
+
+const TAGS = {
+    HTML: {
+        name: 'HTML',
+        class:'bg-[#003159] text-white',
+        icon: HTML
+    },
+    CSS: {
+        name: 'CSS',
+        class:'bg-[#003159] text-white',
+        icon: CSS
+    },
+    SASS: {
+        name: 'SASS',
+        class:'bg-[#003159] text-white',
+        icon: SASS
+    },
+    JS: {
+        name: 'JavaScript',
+        class:'bg-[#003159] text-white',
+        icon: JS
+    }
+}
+
+const PROJECTS = [
+    {
+        title: "Festival Musica",
+        description:
+        "Este es un diseño de una página orientada a los festivales de música en el mundo, la cual puede ser adaptada a cualquier festival musical deseado.",
+        link: "https://helpful-cranachan-336c0f.netlify.app/",
+        github: "https://github.com/Benjamin70/MusicFestival",
+        image: "../projects/Festival.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    },
+    {
+        title: "Tienda de Guitarras-Instrumentos",
+        description:
+        "Este es un diseño simula una tienda para vender instrumentos, específicamente guitarras de todo tipo.",
+        link: "https://incandescent-cupcake-7cb3c5.netlify.app/",
+        github: "https://github.com/Benjamin70/GuitarLA-Instrumentos",
+        image: "../projects/Guitarras-Instrumentos.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    },
+    {
+        title: "Escuela de Cocina",
+        description:
+        "Este es un diseño simula una escuela de cocina, la cual puede ser utilizada para presentar una forma de enseñar todo lo relacionado con la cocina.",
+        link: "https://wondrous-peony-3bd05b.netlify.app/",
+        github: "https://github.com/Benjamin70/School-Cooking",
+        image: "../projects/Escuela-Cocina.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    },
+    {
+        title: "Meeti-Plataforma Comunicacional",
+        description:
+        "Este es un diseño simula una plataforma comunicacional, la cual podría ser utilizada de diferentes formas para comunicar personas de diferentes partes del mundo.",
+        link: "https://warm-bonbon-c78626.netlify.app/",
+        github: "https://github.com/Benjamin70/Meeti-ClonMeetup",
+        image: "../projects/MeetiClub.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    },
+    {
+        title: "StayGlobe",
+        description:
+        "Este es un diseño simula que explora el mundo del hospedaje y la aventura con nuestro demo, una plataforma que podría ser utilizada para el alquiler de viviendas a corto y largo plazo.",
+        link: "https://zippy-alfajores-eed8ae.netlify.app/",
+        github: "https://github.com/Benjamin70/Airbnb-Demo",
+        image: "../projects/StayGlobe.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    },
+    {
+        title: "BlogCafe",
+        description:
+        "Este es un diseño que presenta un blog de cafetería, el cual podría ser utilizado como página principal para una cafetería.",
+        link: "https://playful-hotteok-14ce28.netlify.app/",
+        github: "https://github.com/Benjamin70/Proyecto-Cafeteria",
+        image: "../projects/BlogCafe.webp",
+        tags: [TAGS.HTML, TAGS.CSS, TAGS.SASS, TAGS.JS]
+    }
+
+
+]
+---
+<div class="flex flex-col gap-y-16">
+    {
+      PROJECTS.map(({ image, title, description, tags, link, github }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    <div class="w-full md:w-1/2">
+      <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+        <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+      </div>
+    </div>
+  
+    <div class="w-full md:w-1/2 md:max-w-lg">
+      <h3 class="text-2xl font-bold dark:text-gray-100">
+        {title}
+      </h3>
+      <div class="flex flex-wrap mt-2">
+        <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                >
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+  
+        <div class="mt-2 text-gray-200">{description}</div>
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                {github && (
+                <LinkButton href={github}>
+                <GitHub class="size-6" />
+                Code
+                
+                </LinkButton>
+            )}
+            {link && (
+                <LinkButton href={link}>
+                <Link class="size-4" />
+                Preview
+                </LinkButton>
+            )}
+          </footer>
+      </div>
+    </div>
+  </article>
+      ))
+    }
+  </div>
+  

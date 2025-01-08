@@ -1,11 +1,72 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
 
+import AboutMe from '../components/AboutMe.astro';
+import Badge from '../components/Badge.astro';
+import Experience from '../components/Experience.astro';
+import Projects from '../components/Projects.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import SocialPill from '../components/SocialPill.astro';
+import BriefCase from '../icons/BriefCase.astro';
+import Code from '../icons/Code.astro';
+import GitHub from '../icons/GitHub.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import Mail from '../icons/Mail.astro';
+import ProfileCheck from '../icons/ProfileCheck.astro';
+import Layout from '../layouts/Layout.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Portafolio Benjamin - Desarrollador y Programador Web"
+        description="Contrata a Benjamin Bencosme para crear tu aplicacion web o movil, Desarrollador Web y Salesforce Developer.">
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-20">
+			<img class="rounded-full w-12 h-12 mb-4" src="/src/img/Benjamin.jpg" alt="Benjamin Bencosme Foto">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">Hey, Soy Benjamin
+				<a class="flex justify-center items-center" href="https://www.linkedin.com/in/federico-benjam%C3%ADn-bencosme-d%C3%ADaz-674697224/" target="_blank" rel="noopener">
+					<Badge>Disponible para Trabajar</Badge>
+				</a>
+			</h1>
+
+			<h2 class="text-xl lg:text-1xl opacity-80 text-wrap max-w-[700px]">+2 años de experiencia. Desarrollador Web y Salesforce Consultant. De Republica Dominicana. Especializado en el desarrollo de sitios web y soluciones personalizadas únicas. Comprometido con la creación de interfaces digitales eficientes y sistemas de gestión robustos que mejoran los procesos empresariales y elevan la experiencia del usuario.</h2>
+			<nav class="flex gap-4 mt-8 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/federico-benjam%C3%ADn-bencosme-d%C3%ADaz-674697224/">
+					<LinkedIn class=" size-4 md:size-6"/>
+					LinkedIn
+				</SocialPill>
+				<SocialPill href="https://github.com/Benjamin70">
+					<GitHub class=" size-4 md:size-6"/>
+					GitHub
+				</SocialPill>
+				<SocialPill href="mailto:benjaminbencosme237@gmail.com">
+					<Mail class=" size-4 md:size-6"/>
+					benjaminbencosme237@gmail.com
+				</SocialPill>
+			</nav>
+		</SectionContainer>
+
+		<SectionContainer id="experiencia">
+			<h2 class="text-3xl font-semibold mb-4 flex gap-x-2 items-center">
+				<BriefCase class="size-7"/>
+				Experiencia Laboral
+			</h2>
+			<Experience/>
+		</SectionContainer>
+
+		<SectionContainer id="proyectos">
+			<h2 class="text-3xl font-semibold mb-4 flex gap-x-2 items-center">
+				<Code class="size-7"/>
+				Proyectos
+			</h2>
+			<Projects/>
+		</SectionContainer>
+
+		<SectionContainer id="sobre-mi">
+			<h2 class="text-3xl font-semibold mb-4 flex gap-x-2 items-center">
+				<ProfileCheck class="size-8" />
+        		Sobre mí
+			</h2>
+			<AboutMe/>
+		</SectionContainer>
+	</main>
 </Layout>
